@@ -1,42 +1,58 @@
-const buttons = document.querySelectorAll("button");
-
-const resultEl = document.getElementById("result");
-
-const playerScoreEl = document.getElementById("user-score");
-
-const computerScoreEl = document.getElementById("computer-score");
-
-let playerScore = 0;
-let computerScore = 0;
-
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const result = playRound(button.id, computerPlay());
-    resultEl.textContent = result;
-    
-  });
-});
-
-function computerPlay() {
-  const choices = ["rock", "paper", "scissors"];
-  const randomChoice = Math.floor(Math.random() * choices.length);
-  return choices[randomChoice];
+body {
+  background-color: #f1f1f1;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) {
-    return "It's a tie!";
-  } else if (
-    (playerSelection === "rock" && computerSelection === "scissors") ||
-    (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "scissors" && computerSelection === "paper")
-  ) {
-    playerScore++;
-    playerScoreEl.textContent = playerScore;
-    return "You win! " + playerSelection + " beats " + computerSelection;
-  } else {
-    computerScore++;
-    computerScoreEl.textContent = computerScore;
-    return "You lose! " + computerSelection + " beats " + playerSelection;
-  }
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 100px;
+}
+
+p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  font-size: 3rem;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+#rock {
+  background-color: #ff0000;
+}
+
+#paper {
+  background-color: #2196f3;
+}
+
+#scissors {
+  background-color: #4caf50;
+}
+
+#user-score {
+  color: #2196f3;
+}
+
+#computer-score {
+  color: #ff0000;
 }
