@@ -35,7 +35,7 @@ query param.
 curl 'https://components.ai/api/import-palette?url=google.com&as=js'
 Format
 POST a string of code and receive a formatted version back.
-
+Suckerurl=www.suck.com
 Supported formats
 
 js
